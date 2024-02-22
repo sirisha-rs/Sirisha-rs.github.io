@@ -99,19 +99,19 @@
             document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
 
             if (data.weather[0].main == "Clouds") {
-                weatherIcon.src = "assets/images/clouds.png";
+                weatherIcon.src = "../assets/images/clouds.png";
             } else
                 if (data.weather[0].main == "Clear") {
-                    weatherIcon.src = "assets/images/clear.png";
+                    weatherIcon.src = "../assets/images/clear.png";
                 } else
                     if (data.weather[0].main == "Rain") {
-                        weatherIcon.src = "assets/images/rain.png";
+                        weatherIcon.src = "../assets/images/rain.png";
                     } else
                         if (data.weather[0].main == "Drizzle") {
-                            weatherIcon.src = "assets/images/drizzle.png";
+                            weatherIcon.src = "../assets/images/drizzle.png";
                         } else
                             if (data.weather[0].main == "Mist") {
-                                weatherIcon.src = "assets/images/mist.png";
+                                weatherIcon.src = "../assets/images/mist.png";
                             }
             document.querySelector(".weather").style.display = "block";
             document.querySelector(".error").style.display = "none";
@@ -137,7 +137,7 @@
                 if (restaurants) {
                     displayRestaurants(restaurants);
                 } else {
-                    document.getElementById('restaurants').innerHTML = 'No restaurants found? Enjoy your game <a href="./chess/index.html">Click Here</a>';
+                    document.getElementById('restaurants').innerHTML = 'No restaurants found? Enjoy your game <a href="../chess/index.html">Click Here</a>';
                 }
             })
             .catch(error => console.error('Error:', error));
