@@ -1,0 +1,155 @@
+{
+  "germany": [
+    {
+      "name": "Asia Bistro",
+      "type": "Asian",
+      "rating": 4.7
+    },
+    {
+      "name": "Restaurant Vilott",
+      "type": "Continental",
+      "rating": 4.4
+    },
+    {
+      "name": "Hungarica",
+      "type": "Cafe",
+      "rating": 4.8
+    }
+  ],
+  "delhi": [
+    {
+      "name": "Indian Accent",
+      "type": "Modern Indian",
+      "rating": 4.5
+    },
+    {
+      "name": "Bukhara",
+      "type": "North Indian",
+      "rating": 4.4
+    },
+    {
+      "name": "Karim's",
+      "type": "Mughlai",
+      "rating": 4.2
+    }
+  ],
+  "mumbai": [
+    {
+      "name": "Trishna",
+      "type": "Seafood",
+      "rating": 4.3
+    },
+    {
+      "name": "Gajalee",
+      "type": "Malvani",
+      "rating": 4.1
+    },
+    {
+      "name": "Dakshinayan",
+      "type": "South Indian",
+      "rating": 4.0
+    }
+  ],
+  "kolkata": [
+    {
+      "name": "Peter Cat",
+      "type": "Continental, North Indian",
+      "rating": 4.2
+    },
+    {
+      "name": "6 Ballygunge Place",
+      "type": "Bengali",
+      "rating": 4.0
+    },
+    {
+      "name": "Arsalan",
+      "type": "Biryani",
+      "rating": 4.3
+    }
+  ],
+  "chennai": [
+    {
+      "name": "Saravana Bhavan",
+      "type": "South Indian",
+      "rating": 4.4
+    },
+    {
+      "name": "Murugan Idli Shop",
+      "type": "South Indian",
+      "rating": 4.3
+    },
+    {
+      "name": "Anjappar Chettinad",
+      "type": "Chettinad",
+      "rating": 4.2
+    }
+  ],
+  "bangalore": [
+    {
+      "name": "Karavalli",
+      "type": "Coastal",
+      "rating": 4.5
+    },
+    {
+      "name": "MTR - Mavalli Tiffin Room",
+      "type": "South Indian",
+      "rating": 4.3
+    },
+    {
+      "name": "Toit",
+      "type": "Pub",
+      "rating": 4.4
+    }
+  ],
+  "hyderabad": [
+    {
+      "name": "Paradise",
+      "type": "Biryani",
+      "rating": 4.5
+    },
+    {
+      "name": "Chutneys",
+      "type": "South Indian",
+      "rating": 4.2
+    },
+    {
+      "name": "Bawarchi",
+      "type": "Biryani",
+      "rating": 4.3
+    }
+  ],
+  "pune": [
+    {
+      "name": "Vaishali",
+      "type": "South Indian",
+      "rating": 4.4
+    },
+    {
+      "name": "Maratha Samrat",
+      "type": "Maharashtrian",
+      "rating": 4.2
+    },
+    {
+      "name": "Santosh Bakery",
+      "type": "Bakery",
+      "rating": 4.0
+    }
+  ],
+  "ahmedabad": [
+    {
+      "name": "Agashiye",
+      "type": "Gujarati",
+      "rating": 4.2
+    },
+    {
+      "name": "Swati Snacks",
+      "type": "Gujarati",
+      "rating": 4.3
+    },
+    {
+      "name": "Tinello",
+      "type": "Italian",
+      "rating": 4.1
+    }
+  ]
+}

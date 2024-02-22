@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climatery App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/02a18c6570.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+    ">
+</head>
+
+<body>
+    <!-- Start nav-bar code  -->
+    <div class="nav">
+        <div class="logo">Climatery</div>
+    </div>
+
+    <!-- End nav-bar code  -->
+
+    <!-- Start weather app code -->
+    <div class="row d-flex   aligns-items-center justify-content-center text-center mx-auto">
+        <div class="col-5">
+            <div class="card">
+                <div class="search">
+                    <input name="city" id="city" type="text" placeholder="Enter City Name" spellcheck="false">
+                    <button><img src="../assets/images/search.png" alt="search"></button>
+                </div>
+                <div class="error">
+                    <p>Invaild City Name !</p>
+                </div>
+                <div class="weather">
+                    <img class="weather-icon" src="../assets/images/rain.png" alt="weather-icon">
+                    <h3 class="temp">22°c</h1>
+                        <h4 class="city">New York</h2>
+                            <div class="details container py-1">
+                                <div class="col">
+                                    <img src="../assets/images/humidity.png" alt="humidity">
+
+                                    <div>
+                                        <small class="humidity">50%</small>
+                                        <p>Humidity</p>
+
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <img src="../assets/images/wind.png" alt="wind">
+                                    <div>
+                                        <small class="wind">15 km/h</small>
+                                        <p>Wind Speed</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card shadow-lg rounded-2 border-0">
+                <div class="card-body">
+                    <div class="container">
+                        <p class="text-lead">Suggestions</p>
+                        <div id="restaurants"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End weather app code -->
+
+</body>
+<script>
+    // Start weather app code 
+
+    const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+    const api_key = 'f00c38e0279b7bc85480c3fe775d518c';
+
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
+    const weatherIcon = document.querySelector(".weather-icon")
+
+    async function checkWeather(city) {
+        const response = await fetch(url + city + `&appid=${api_key}`);
+
+        if (response.status == 404) {
+
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".weather").style.display = "none";
+
+        } else {
+            var data = await response.json();
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+            if (data.weather[0].main == "Clouds") {
+                weatherIcon.src = "assets/images/clouds.png";
+            } else
+                if (data.weather[0].main == "Clear") {
+                    weatherIcon.src = "assets/images/clear.png";
+                } else
+                    if (data.weather[0].main == "Rain") {
+                        weatherIcon.src = "assets/images/rain.png";
+                    } else
+                        if (data.weather[0].main == "Drizzle") {
+                            weatherIcon.src = "assets/images/drizzle.png";
+                        } else
+                            if (data.weather[0].main == "Mist") {
+                                weatherIcon.src = "assets/images/mist.png";
+                            }
+            document.querySelector(".weather").style.display = "block";
+            document.querySelector(".error").style.display = "none";
+        }
+    }
+//function declartion and calling weather & restaurant function. 
+    searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+        getRestaurants();
+    })
+    // End weather app code 
+
+
+    // restaurants fetching
+    function getRestaurants() {
+        const city = searchBox.value.toLowerCase();
+        //restaurants.json city names are in lower case
+
+        fetch('restaurants.json')
+            .then(response => response.json())
+            .then(data => {
+                restaurants = data[city]; //key
+                if (restaurants) {
+                    displayRestaurants(restaurants);
+                } else {
+                    document.getElementById('restaurants').innerHTML = 'No restaurants found? Enjoy your game <a href="./chess/index.html">Click Here</a>';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+    }
+// defining a function for displaying restuarants
+    function displayRestaurants(restaurants) {
+        let html = '<ul class="list-group">';
+            //dynamic creation of suggestion table.
+        restaurants.forEach(restaurant => {
+            html += `<li class="list-group-item"><strong>${restaurant.name}</strong> - ${restaurant.type} (Rating: ${restaurant.rating})</li>`;
+        });
+        html += '</ul>';
+        document.getElementById('restaurants').innerHTML = html;
+    }
+</script>
+
+</html>
